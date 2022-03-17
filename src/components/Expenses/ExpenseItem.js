@@ -1,8 +1,8 @@
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
-import Card from "./Card";
+import Card from "../UI/Card";
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   // const expenseDate = new Date(2022, 2, 17);
   // const expenseTitle = "Car Insurance";
   // const expenseAmount = "398";
@@ -29,7 +29,7 @@ function ExpenseItem(props) {
       </div>
     </Card>
   );
-}
+};
 
 //컴포넌트 === html코드를 리턴하는 함수일 뿐임
 

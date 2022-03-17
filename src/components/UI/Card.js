@@ -1,12 +1,12 @@
 import "./Card.css";
 
-function Card(props) {
+const Card = (props) => {
   const classes = "card " + props.className;
 
   return <div className={classes}>{props.children}</div>;
   // children의 밸류는 항상 콘텐츠이다(오픈태그와 클로징태그 사이에 있는 것)
   // 컴포지션(컴포넌트를 모아서 인터페이스를 만드는 것)에선 props.children이 중요하다
-}
+};
 
 export default Card;
 
