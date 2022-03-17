@@ -1,6 +1,7 @@
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
+import { useState } from "react";
 
 const ExpenseItem = (props) => {
   // const expenseDate = new Date(2022, 2, 17);
@@ -13,6 +14,13 @@ const ExpenseItem = (props) => {
   // const month = props.date.toLocaleString("ko-KR", { month: "long" });
   // const day = props.date.toLocaleString("ko-KR", { day: "2-digit" });
   // const years = props.date.getFullYear();
+
+  const [title, setTitle] = useState(props.title);
+  // useState는 두가지 요소가 담긴 배열을 반환하는데 첫 번째 요소는 현재의 값이고, 두 번째 요소는 데이터의 변화를 사용자 인터페이스에 반영해주는(세팅해주는)함수이다.
+
+  const clickHandler = () => {
+    setTitle("title set");
+  };
   return (
     // 맞춤 컴포넌트는 props가 없으면 래퍼로 쓸 수 없다
     <Card className="expense-item">
@@ -24,9 +32,10 @@ const ExpenseItem = (props) => {
       {/* 여기기준으로 해당 컴포넌트를 2개로 나눔 */}
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{props.title}</h2>
-        <div className="expense-item__price">{props.amount}천원</div>
+        <h2>{title}</h2>
+        <div className="expense-item__price">{props.amount}만원</div>
       </div>
+      <button onClick={clickHandler}>수정</button>
     </Card>
   );
 };

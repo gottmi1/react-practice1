@@ -1,29 +1,31 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
   const expenses = [
     {
       id: "e1",
       title: "아이폰 13 Pro 구매",
-      amount: 1200,
+      amount: 120,
       date: new Date(2022, 2, 15),
     },
-    { id: "e2", title: "카드 값", amount: 799.49, date: new Date(2022, 2, 21) },
+    { id: "e2", title: "카드 값", amount: 79, date: new Date(2022, 2, 21) },
     {
       id: "e3",
-      title: "Car Insurance",
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
+      title: "옷 쇼핑",
+      amount: 29,
+      date: new Date(2021, 2, 24),
     },
     {
       id: "e4",
-      title: "New Desk (Wooden)",
-      amount: 450,
-      date: new Date(2021, 5, 12),
+      title: "3월 식비",
+      amount: 45,
+      date: new Date(2022, 2, 31),
     },
   ];
   return (
     <div>
+      <NewExpense />
       <Expenses items={expenses} />
       {/* Expenses.js에서 사용되는props를 items로 명명했기 때문에, items가 무엇을 가르키는지 매칭시켜줌 */}
     </div>
