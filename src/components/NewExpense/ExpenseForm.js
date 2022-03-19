@@ -44,7 +44,7 @@ const ExpenseForm = (props) => {
     e.preventDefault();
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     // console.log(expenseData);
@@ -57,6 +57,13 @@ const ExpenseForm = (props) => {
     setEnterdDate("");
     // submit시 다시 비워주기 위해
   };
+
+  // const cancleExpense = () => {
+  //   setEnterdTitle("");
+  //   setEnterdAmount("");
+  //   setEnterdDate("");
+  // };
+
   return (
     <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
@@ -92,6 +99,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          취소
+        </button>
         <button type="submit">추가</button>
       </div>
     </form>

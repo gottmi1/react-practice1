@@ -1,32 +1,38 @@
+import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
+const dummyExpenses = [
+  {
+    id: "e1",
+    title: "아이폰 13 Pro 구매",
+    amount: 120,
+    date: new Date(2022, 2, 15),
+  },
+  { id: "e2", title: "카드 값", amount: 79, date: new Date(2022, 2, 21) },
+  {
+    id: "e3",
+    title: "옷 쇼핑",
+    amount: 29,
+    date: new Date(2021, 2, 24),
+  },
+  {
+    id: "e4",
+    title: "3월 식비",
+    amount: 45,
+    date: new Date(2022, 2, 31),
+  },
+];
+
 const App = () => {
-  const expenses = [
-    {
-      id: "e1",
-      title: "아이폰 13 Pro 구매",
-      amount: 120,
-      date: new Date(2022, 2, 15),
-    },
-    { id: "e2", title: "카드 값", amount: 79, date: new Date(2022, 2, 21) },
-    {
-      id: "e3",
-      title: "옷 쇼핑",
-      amount: 29,
-      date: new Date(2021, 2, 24),
-    },
-    {
-      id: "e4",
-      title: "3월 식비",
-      amount: 45,
-      date: new Date(2022, 2, 31),
-    },
-  ];
+  const [expenses, setExpenses] = useState(dummyExpenses);
 
   const addExpenseHandler = (expense) => {
-    console.log("in app.js");
-    console.log(expense);
+    setExpenses((prevExpenses) => {
+      console.log(prevExpenses);
+      console.log(expense);
+      return [expense, ...prevExpenses];
+    });
   };
 
   return (

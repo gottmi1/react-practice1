@@ -23,20 +23,22 @@ const ExpenseItem = (props) => {
   };
   return (
     // 맞춤 컴포넌트는 props가 없으면 래퍼로 쓸 수 없다
-    <Card className="expense-item">
-      {/* <div>
+    <li>
+      <Card className="expense-item">
+        {/* <div>
         <div>{years}</div>
         <div>{month}</div>
         <div>{day}</div>
       </div> */}
-      {/* 여기기준으로 해당 컴포넌트를 2개로 나눔 */}
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        <h2>{title}</h2>
-        <div className="expense-item__price">{props.amount}만원</div>
-      </div>
-      <button onClick={clickHandler}>수정</button>
-    </Card>
+        {/* 여기기준으로 해당 컴포넌트를 2개로 나눔 */}
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          <h2>{props.title}</h2>
+          <div className="expense-item__price">{props.amount}만원</div>
+        </div>
+        <button onClick={clickHandler}>수정</button>
+      </Card>
+    </li>
   );
 };
 
