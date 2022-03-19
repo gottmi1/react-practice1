@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [enteredTitle, setEnterdTitle] = useState("");
   const [enteredAmount, setEnterdAmount] = useState("");
   const [enteredDate, setEnterdDate] = useState("");
@@ -47,7 +47,11 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(expenseData);
+    // console.log(expenseData);
+    props.onSaveExpenseData(expenseData);
+    // ExpenseForm을 App.js로 한 번에 보낼 수는 없기 때문에 NewExpense를 경유해서 보내야 한다
+    // NewExpense 에서 onSaveExpenseData={saveExpenseDataHandler}를 해줬으니 이제 Form에서 onSaveExpenseData props를 예측할 수 있다
+    // 이렇게 하면 다른 컴포넌트에서 정의된 saveExpensesDataHandler를 다른 컴포넌트에서도 사용할 수 있어짐.
     setEnterdTitle("");
     setEnterdAmount("");
     setEnterdDate("");

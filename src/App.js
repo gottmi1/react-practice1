@@ -23,11 +23,18 @@ const App = () => {
       date: new Date(2022, 2, 31),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("in app.js");
+    console.log(expense);
+  };
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
       {/* Expenses.js에서 사용되는props를 items로 명명했기 때문에, items가 무엇을 가르키는지 매칭시켜줌 */}
+      {/* NewExpense의 데이터를 Expenses로 보내고 싶다면 NewExpense -> app.js로 끌어 올린(자식 -> 부모는 끌어올린다고 표현함 lifting) 후에 props를 이용해 app.js -> Expenses로 보내야 한다  */}
     </div>
   );
   // 값이 외부에서 유입되어야 할 때, component의 내용을 건드리기 전에 여기부터 해놓아야 함
